@@ -478,21 +478,13 @@ app.post('/index', (req, res) => {
     });
 });
 
-// Rota para tela de usuário padrão
-app.get('/tela_usuario_padrao', isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, 'tela_usuario_padrao.html'));
-});
-
 // Rota para a página de menu
 app.get('/menu', isAuthenticated, (req, res) => {
     const username = req.session.username;
 
-    if (username === 'weslley.filadelfo') {
-        // Renderiza menu completo para o usuário weslley.filadelfo
-        res.render('menu', { showAllButtons: true });
-    } else if (username === 'farmacia.veros') {
-        // Renderiza menu restrito para o usuário farmacia.veros
-        res.render('menu', { showAllButtons: false });
+    if (username === 'farmacia.veros' || username === 'weslley.filadelfo') {
+        // Renderiza o menu para usuários autorizados
+        res.sendFile(path.join(__dirname, 'menu.html'));
     } else {
         // Usuário não autorizado
         res.status(401).send('Acesso não autorizado');
@@ -612,7 +604,7 @@ app.get('/cadastroSetor.js', (req, res) => {
     res.sendFile(path.join(__dirname, 'cadastroSetor.js'));
 });
 
-// Rota para servir a página de login (login.html)
+// Rota para a página inicial (login)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
