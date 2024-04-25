@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form action="/salvar_produto" method="POST">
+        <div>
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo">
+        </div>
+        <div>
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" required>
+        </div>
+        <div>
+            <label for="desc_resumida">Descrição Resumida:</label>
+            <input type="text" id="desc_resumida" name="desc_resumida" required>
+        </div>
+        <div>
+            <label for="kit">Kit:</label>
+            <select id="kit" name="kit">
+                <option value="S">Sim</option>
+                <option value="N">Não</option>
+            </select>
+        </div>
+        <div>
+            <label for="consignado">Consignado:</label>
+            <select id="consignado" name="consignado">
+                <option value="S">Sim</option>
+                <option value="N">Não</option>
+            </select>
+        </div>
+        <div>
+            <label for="opme">OPME:</label>
+            <select id="opme" name="opme">
+                <option value="S">Sim</option>
+                <option value="N">Não</option>
+            </select>
+        </div>
+        <div>
+            <label for="especie">Espécie:</label>
+            <input type="text" id="especie" name="especie">
+        </div>
+        <div>
+            <label for="classe">Classe:</label>
+            <input type="text" id="classe" name="classe">
+        </div>
+        <div>
+            <label for="sub_classe">Sub-Classe:</label>
+            <input type="text" id="sub_classe" name="sub_classe">
+        </div>
+        <div>
+            <label for="curva_abc">Curva ABC:</label>
+            <input type="text" id="curva_abc" name="curva_abc">
+        </div>
+        <div>
+            <label for="lote">Lote:</label>
+            <input type="text" id="lote" name="lote">
+        </div>
+        <div>
+            <label for="serie">Série:</label>
+            <input type="text" id="serie" name="serie">
+        </div>
+        <div>
+            <label for="registro_anvisa">Registro ANVISA:</label>
+            <input type="text" id="registro_anvisa" name="registro_anvisa">
+        </div>
+        <div>
+            <label for="etiqueta">Etiqueta:</label>
+            <select id="etiqueta" name="etiqueta">
+                <option value="S">Sim</option>
+                <option value="N">Não</option>
+            </select>
+        </div>
+        <div>
+            <label for="medicamento">Medicamento:</label>
+            <select id="medicamento" name="medicamento">
+                <option value="S">Sim</option>
+                <option value="N">Não</option>
+            </select>
+        </div>
+        <div>
+            <label for="carater">Caráter:</label>
+            <input type="text" id="carater" name="carater">
+        </div>
+        <div>
+            <label for="atividade">Atividade:</label>
+            <input type="text" id="atividade" name="atividade">
+        </div>        
+            <div>
+                <label for="aplicacao">Aplicação:</label>
+                <select id="aplicacao" name="aplicacao">
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="auto_custo">Auto custo:</label>
+                <select id="auto_custo" name="auto_custo">
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="valor">Valor:</label>
+                <input type="text" id="valor" name="valor">
+            </div>
+
+            <div>
+                <label for="repasse">Repasse:</label>
+                <input type="text" id="repasse" name="repasse">
+            </div>
+
+        <div>
+            <label for="procedimento_faturamento">Procedimento de Faturamento:</label>
+            <input type="text" id="procedimento_faturamento" name="procedimento_faturamento">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="tipo_atendimento">Tipo de Atendimento:</label>
+            <div class="checkbox-group">
+                <label for="ps">PS</label>
+                <input type="checkbox" id="ps" name="tipo_atendimento" value="PS">
+
+                <label for="ambulatorio">Ambulatório</label>
+                <input type="checkbox" id="ambulatorio" name="tipo_atendimento" value="Ambulatório">
+
+                <label for="internacao">Internação</label>
+                <input type="checkbox" id="internacao" name="tipo_atendimento" value="Internação">
+
+                <label for="externo">Externo</label>
+                <input type="checkbox" id="externo" name="tipo_atendimento" value="Externo">
+
+                <label for="todos">Todos</label>
+                <input type="checkbox" id="todos" name="tipo_atendimento" value="Todos">
+            </div>
+
+            <br>
+
+        <div>
+            <label for="observacao">Observação:</label>
+            <textarea id="observacao" name="observacao" rows="6" cols="100"></textarea>
+        </div>
+        <button type="submit">Salvar</button>
+        <button type="submit" formaction="/finalizar_cadastro_produto">Finalizar</button>
+        <button type="button" onclick="voltarParaMenu()">Voltar</button>
+
+<script>
+    function voltarParaMenu() {
+        window.location.href = '/menu'; // Redireciona para a rota '/menu'
+    }
+</script>
+
+    </form>
+</body>
+</html>

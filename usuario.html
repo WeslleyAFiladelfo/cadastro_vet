@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="usuario.css">
+</head>
+<body>
+    <div class="container">
+        <form id="usuarioForm" action="/salvar_usuario" method="POST" onsubmit="cadastrarUsuario(); return false;">
+            <div class="form-group">
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="setor">Setor:</label>
+                <select id="setor" name="setor" required>
+                    <!-- Opções de setor serão preenchidas dinamicamente -->
+                </select>
+            </div>
+            <!-- Botão de submit para cadastrar o usuário -->
+            <button type="submit">Cadastrar</button>
+            <!-- Botão para voltar para a página de menu -->
+            <button type="button" onclick="voltar();">Voltar</button>
+        </form>
+    </div>
+    <script src="usuario.js"></script>
+    <script src="carregarSetores.js"></script>
+
+    <!-- Script para carregar setores na lista suspensa -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const setorSelect = document.getElementById('setor');
+
+            // Requisição para obter os setores disponíveis
+            fetch('/get_setores')
+                .then(response => response.json())
+                .then(data => {
+                    // Limpar opções existentes
+                    setorSelect.innerHTML = '';
+
+                    // Adicionar opções de setor ao menu suspenso
+                    data.forEach(setor => {
+                        const option = document.createElement('option');
+                        option.value = setor.id;
+                        option.textContent = setor.nome;
+                        setorSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar setores:', error);
+                });
+        });
+    </script>
+</body>
+</html>

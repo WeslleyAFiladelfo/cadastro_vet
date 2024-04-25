@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Procedimento</title>
+    <link rel="stylesheet" href="procedimento.css">
+</head>
+<body>
+    <form action="/salvar_procedimento" method="POST">
+        <div>
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="codigo_grupo">Código do Grupo:</label>
+            <input type="text" id="codigo_grupo" name="codigo_grupo" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="descricao_grupo">Descrição do Grupo:</label>
+            <input type="text" id="descricao_grupo" name="descricao_grupo" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="porte_anestesico">Porte Anestésico:</label>
+            <input type="text" id="porte_anestesico" name="porte_anestesico" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="valor_procedimento">Valor do Procedimento:</label>
+            <input type="text" id="valor_procedimento" name="valor_procedimento" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="tipo_atendimento">Tipo de Atendimento:</label>
+            <div class="checkbox-group">
+                <label for="ps">PS</label>
+                <input type="checkbox" id="ps" name="tipo_atendimento" value="PS">
+
+                <label for="ambulatorio">Ambulatório</label>
+                <input type="checkbox" id="ambulatorio" name="tipo_atendimento" value="Ambulatório">
+
+                <label for="internacao">Internação</label>
+                <input type="checkbox" id="internacao" name="tipo_atendimento" value="Internação">
+
+                <label for="internacao">Externo</label>
+                <input type="checkbox" id="internacao" name="tipo_atendimento" value="Internação">
+
+                <label for="todos">Todos</label>
+                <input type="checkbox" id="todos" name="tipo_atendimento" value="Todos">
+            </div>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="cirurgia">Cirurgia:</label>
+            <select id="cirurgia" name="cirurgia">
+                <option value="N">Não</option>
+                <option value="S">Sim</option>
+            </select>
+        </div>
+
+        <br>
+        
+        <div>
+            <label for="repasse">Repasse:</label>
+            <select id="repasse" name="repasse" onchange="toggleRepasseValue(this)">
+                <option value="N">Não</option>
+                <option value="S">Sim</option>
+            </select>
+        </div>
+        
+        <br>
+        
+        <div id="repasseValueField" style="display: none;">
+            <label for="valor_repasse">Valor do Repasse:</label>
+            <input type="text" id="valor_repasse" name="valor_repasse">
+        </div>
+        
+        <br>
+        
+        <div>
+            <label for="observacao">Observação:</label>
+            <textarea id="observacao" name="observacao" rows="6" cols="100"></textarea>
+        </div>
+
+        <br>
+
+        <button type="submit">Salvar</button>
+        <button type="submit">Finalizar</button>
+        <button type="button" onclick="window.location.href='menu.html'">Voltar</button>
+    </form>
+
+    <script>
+        function toggleRepasseValue(selectElement) {
+            const repasseValueField = document.getElementById('repasseValueField');
+            repasseValueField.style.display = selectElement.value === 'S' ? 'block' : 'none';
+        }
+    </script>
+    <!-- Elemento para a marca d'água -->
+    <div class="watermark">
+        WG.web
+    </div>
+</body>
+</html>

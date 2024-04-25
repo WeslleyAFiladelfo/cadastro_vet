@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Solicitações</title>
+    <link rel="stylesheet" href="/historico.css">
+    <script>
+        function openDetails(id) {
+            // Implemente a lógica para abrir a tela de detalhes da solicitação com o ID específico
+            console.log('Abrir detalhes da solicitação:', id);
+            // Redirecionar para a tela de detalhes
+            window.location.href = `/detalhes_solicitacao?id=${id}`;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Usuário Solicitante</th>
+            <th>Descrição</th>
+            <th>Data Solicitação</th>
+            <th>Status</th>
+        </tr>
+        <!-- Aqui você deve preencher dinamicamente com os dados das solicitações -->
+        <!-- Exemplo de uma linha de solicitação -->
+        <tr onclick="openDetails(1)">
+            <td>Usuário A</td>
+            <td>Descrição do Produto A</td>
+            <td>2024-04-16 10:30</td>
+            <td style="color: red;">Pendente</td>
+        </tr>
+        <!-- Outras linhas aqui -->
+    </table>
+    <form>
+        <button type="button" onclick="window.location.href='menu.html'">Voltar</button>
+    </form>
+</body>
+</html>

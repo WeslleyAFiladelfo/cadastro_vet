@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Setor</title>
+    <script src="/cadastroSetor.js" defer></script>
+    <link rel="stylesheet" href="setor.css">
+</head>
+<body>
+    <div class="container">
+        <form id="setorForm">
+            <div class="form-group">
+                <label for="nome">Nome do Setor:</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome do Setor">
+            </div>
+            <div class="form-group">
+                <label for="responsavel">Responsável:</label>
+                <input type="text" id="responsavel" name="responsavel" placeholder="Digite o responsável pelo setor">
+            </div>
+            <button onclick="salvarSetor()">Salvar</button>
+            <button type="button" onclick="window.location.href='/menu'">Voltar</button>
+        </form>
+    </div>
+</body>
+</html>
